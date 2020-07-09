@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Brute Shift Caesar Chiper (CTF Helper Tool)
 # By Viloid
 # Sec7or Team ~ Surabaya HackerLink
 
@@ -27,7 +26,7 @@ read -p "[?] STRINGS : " str
 printf "${N}+---------------------------------------\n";
 printf "| Shift\t| Output \n";
 printf "+---------------------------------------\n";
-for i in {0..25};do
-printf "|  ${P}$((25-i)) ${N}\t| ${G}$(brute "$str" $i)${N}\n";
+for i in {1..26};do
+printf "|  ${P}$((26-i)) ${N}\t| ${G}$(brute "$str" $i)${N}\n";
 done
 printf "+---------------------------------------\n";
