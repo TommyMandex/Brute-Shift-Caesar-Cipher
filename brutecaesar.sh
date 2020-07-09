@@ -1,35 +1,33 @@
-#!/bin/bash
-# Brute Shift Caesar Cipher
-# Coded by Versailles
-# Sec7or ~ Surabaya Hacker Link
+#!/usr/bin/env bash
+# Brute Shift Caesar Chiper (CTF Helper Tool)
+# By Viloid
+# Sec7or Team ~ Surabaya HackerLink
 
-RED='\033[0;31m'
-WHITE='\e[37m'
-GREEN='\e[32m'
-ORANGE='\033[0;33m'
-PURPLE='\033[0;35m'
-NC='\033[0m'
+R='\e[0;31m'
+W='\e[37m'
+G='\e[32m'
+O='\e[0;33m'
+P='\e[0;35m'
+N='\e[0m'
 
 brute(){
-local a                                                        
-local geser                                                    
+local a
+local geser
 a=({a..z})
 geser=()
-geser+=("${a[@]:(-(26-$2))}")                                  
+geser+=("${a[@]:(-(26-$2))}")
 geser+=("${a[@]:0:$(($2+1))}")
-echo "$1" | tr '[:upper:]' '[:lower:]' | tr "${a[*]}" "${geser[*]}"                                                           }
+echo "$1" | tr '[:upper:]' '[:lower:]' | tr "${a[*]}" "${geser[*]}"
+}
 
-printf "${RED}"
-figlet -f big "BruteCaesar"
-printf "${WHITE}# Brute Shift Caesar Cipher (CTF Tool Helper)\n"
-printf "# By Versailles\n"
-printf "# Sec7or Team ~ Surabaya Hacker Link${NC}\n"
-printf "${ORANGE}\n"
-read -p "[!] STRINGS : " str
-printf "${NC}+---------------------------------------\n";
+printf "\n# ${R} Brute Shift Caesar Cipher (CTF Helper Tool)${N}\n"
+printf "# ${W} By Viloid (Sec7or Team ~ Surabaya Hacker Link)${N}\n"
+printf "${O}\n"
+read -p "[?] STRINGS : " str
+printf "${N}+---------------------------------------\n";
 printf "| Shift\t| Output \n";
 printf "+---------------------------------------\n";
-for i in {1..25};do
-printf "|  ${PURPLE}$((26-i)) ${NC}\t| ${GREEN}$(brute $str $i)${NC}\n";
+for i in {0..25};do
+printf "|  ${P}$((25-i)) ${N}\t| ${G}$(brute "$str" $i)${N}\n";
 done
 printf "+---------------------------------------\n";
